@@ -1,6 +1,7 @@
 ### A demo app using following tech task
 
 - Next js, Typescript, Redux Toolkit, JEST, React Testing Library
+  ![name](https://img.shields.io/badge/abhisek-mishra)
 
 ## what i learn:
 
