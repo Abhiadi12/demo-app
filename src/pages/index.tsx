@@ -5,7 +5,7 @@ import Display from "@/components/display/Display";
 import Search from "@/components/search/Search";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
-import MyForm from "@/components/MyForm/MyForm";
+import MyForm from "@/components/myform/MyForm";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
