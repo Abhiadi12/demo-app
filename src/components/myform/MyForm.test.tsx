@@ -9,11 +9,13 @@ describe("MyForm", () => {
     const phoneElement = screen.getByLabelText("Phone Number");
     const ageElement = screen.getByLabelText("Age");
     const addressElement = screen.getByLabelText("Address");
+    const dateElement = screen.getByLabelText("Controlled picker");
 
     expect(nameElement).toBeInTheDocument();
     expect(phoneElement).toBeInTheDocument();
     expect(ageElement).toBeInTheDocument();
     expect(addressElement).toBeInTheDocument();
+    expect(dateElement).toBeInTheDocument();
   });
 
   test("should update form fields when input value changes", () => {
@@ -33,6 +35,10 @@ describe("MyForm", () => {
     const addressElement = screen.getByLabelText("Address");
     fireEvent.change(addressElement, { target: { value: "Abakash Puri" } });
     expect(addressElement).toHaveValue("Abakash Puri");
+
+    const dateElement = screen.getByLabelText("Controlled picker");
+    fireEvent.change(dateElement, { target: { value: "04/17/2023" } });
+    expect(dateElement).toHaveValue("04/17/2023");
   });
 
   test("should display validation errors when input value is invalid", () => {

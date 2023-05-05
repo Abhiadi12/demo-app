@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { userInfo } from "@/types";
 import { TextField, Button } from "@mui/material";
 import validator from "@/validations/myForm.validation";
+import dayjs, { Dayjs } from "dayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const formItems = [
   {
@@ -40,6 +44,7 @@ function MyForm() {
     age: { value: 0, error: "" },
     address: { value: "", error: "" },
   });
+  const [value, setValue] = React.useState<Dayjs | null>(dayjs("2022-04-17"));
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id: name, value } = e.target;
@@ -76,6 +81,15 @@ function MyForm() {
           onChange={changeHandler}
         />
       ))}
+      <div>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            label="Controlled picker"
+            value={value}
+            onChange={(newValue) => setValue(newValue)}
+          />
+        </LocalizationProvider>
+      </div>
       <Button variant="contained">Submit</Button>
     </div>
   );
